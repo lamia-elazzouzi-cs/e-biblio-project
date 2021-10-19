@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ouvrages</title>
+
+    <link rel="stylesheet" href="../../static/e_biblio_app/style.css">
+    <script src="https://kit.fontawesome.com/2aa2048422.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="nav">
+        <ul>
+            <li><a class="nav_links" href="/home">Home</a></li>
+            <li><a class="nav_links" href="/ouvrages">Ouvrages</a></li>
+            <li><a class="nav_links" href="/chercheurs">Chercheurs</a></li>
+            <li><a class="nav_links" href="/emprunts">Emprunts</a></li>
+            <li style="float:right"><a class="active nav_links" href="logout">Déconnexion</a></li>
+            <li style="float:right"><a class="nav_links" href="admin">Pannel Admin</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <h1>Ouvrages</h1>
+        <div>
+            <h4><a id="ajoutter_nouveau" href="/newouvrage">Ajouter Ouvrage</a></h4>
+              <table>
+                <tr>
+                  <td>Titre</td>
+                  <td>Auteur(s)</td>
+                  <td>Editeur</td>
+                  <td>Date de publication</td>
+                  <td>Nombres d'exemplaires disponibles</td>
+                  <td>Spécialité</td>
+                </tr>
+
+                {% for o in mes_ouvrages %}
+                  <tr>
+                    <td>
+                        <a href="updateouvrage/{{o.id}}"><i style="color: #0000cc;" class="fas fa-edit"></i></a>&nbsp;
+                        <a href="destroyouvrage/{{o.id}}"><i style="color: #cc0000;" class="fas fa-trash-alt"></i></a>
+                        &nbsp;&nbsp;
+                        {{o.titre}}
+                    </td>
+                    <td>{{o.auteurs}}</td>
+                    <td>{{o.editeur}}</td>
+                    <td>{{o.date_publication}}</td>
+                    <td>{{o.examplaires_dispo}}</td>
+                    <td>{{o.specialite}}</td>
+
+                  </tr>
+                {% endfor %}
+              </table>
+        </div>
+
+    </div>
+</body>
+</html>

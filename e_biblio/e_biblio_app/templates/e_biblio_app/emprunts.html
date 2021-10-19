@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emprunts</title>
+
+    <link rel="stylesheet" href="../../static/e_biblio_app/style.css">
+    <script src="https://kit.fontawesome.com/2aa2048422.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <div id="nav">
+        <ul>
+            <li><a class="nav_links" href="/home">Home</a></li>
+            <li><a class="nav_links" href="/ouvrages">Ouvrages</a></li>
+            <li><a class="nav_links" href="/chercheurs">Chercheurs</a></li>
+            <li><a class="nav_links" href="/emprunts">Emprunts</a></li>
+            <li style="float:right"><a class="active nav_links" href="logout">Déconnexion</a></li>
+            <li style="float:right"><a class="nav_links" href="admin">Pannel Admin</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <h1>Emprunts</h1>
+        <div>
+          <h4><a id="ajoutter_nouveau" href="/newemprunt">Ajouter Emprunt</a></h4>
+          <table>
+            <tr>
+              <th>Chercheur</th>
+              <th>Ouvrage Emprunté</th>
+            </tr>
+
+            {% for e in mes_emprunts %}
+              <tr>
+                  <td>
+                        <a href="updateemprunt/{{e.id}}"><i style="color: #0000cc;" class="fas fa-edit"></i></a>&nbsp;
+                        <a href="destroyemprunt/{{e.id}}"><i style="color: #cc0000;" class="fas fa-trash-alt"></i></a>
+                        &nbsp;&nbsp;{{e.id_chercheur}}
+                  </td>
+                <td>{{e.id_ouvrage}}</td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+    </div>
+</body>
+</html>

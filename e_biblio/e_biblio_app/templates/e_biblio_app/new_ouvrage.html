@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouvel ouvrage</title>
+    <style>
+        body{
+            font-family: arial, sans-serif;
+        }
+      table{
+
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 60%;
+        font-size: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+      }
+      td, th {
+        border: 1px solid #2A2C7F;
+        text-align: left;
+        padding: 8px;
+      }
+      button{
+        margin-top: 2em;
+        margin-left: 70em;
+      }
+
+      /* Navbar styles starts */
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+              background-color: #2A2C7F;
+              position: sticky;
+              top: 0;
+            }
+
+            li {
+              float: left;
+            }
+
+            .nav_links{
+              display: block;
+              color: white;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+            }
+
+            li:hover{
+              background-color: #275C6E;
+            }
+
+            .active {
+              background-color: #2A2C7F;
+            }
+            #nav {
+              overflow: hidden;
+              width: 100vw;
+              position: fixed;
+              left: 50%;
+              right: 50%;
+              margin-left: -50vw;
+              margin-right: -50vw;
+              top: 0;
+            }
+      /* Navbar styles ends */
+
+      input:focus {
+          border: 2px solid #2A2C7F;
+          border-radius: 4px;
+      }
+      input{
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #b30059;
+          border-radius: 4px;
+          box-sizing: border-box;
+          resize: vertical;
+      }
+
+    /* Style the submit button */
+        button {
+          background-color: #99004d;
+          color: white;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nav">
+        <ul>
+            <li><a class="nav_links" href="/home">Home</a></li>
+            <li><a class="nav_links" href="/ouvrages">Ouvrages</a></li>
+            <li><a class="nav_links" href="/chercheurs">Chercheurs</a></li>
+            <li><a class="nav_links" href="/emprunts">Emprunts</a></li>
+            <li style="float:right"><a class="active nav_links" href="logout">Déconnexion</a></li>
+            <li style="float:right"><a class="nav_links" href="admin">Pannel Admin</a></li>
+        </ul>
+    </div>
+
+  <form method="POST">
+    <table>
+      {{ form }}
+    </table>
+    {% csrf_token %}
+    <button type="submit">Ajouter</button>
+  </form>
+</body>
+</html>

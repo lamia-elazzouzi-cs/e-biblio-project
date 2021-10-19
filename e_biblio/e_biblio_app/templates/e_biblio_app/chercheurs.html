@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chercheurs</title>
+
+    <link rel="stylesheet" href="../../static/e_biblio_app/style.css">
+    <script src="https://kit.fontawesome.com/2aa2048422.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="nav">
+        <ul>
+            <li><a class="nav_links" href="/home">Home</a></li>
+            <li><a class="nav_links" href="/ouvrages">Ouvrages</a></li>
+            <li><a class="nav_links" href="/chercheurs">Chercheurs</a></li>
+            <li><a class="nav_links" href="/emprunts">Emprunts</a></li>
+            <li style="float:right"><a class="active nav_links" href="logout">Déconnexion</a></li>
+            <li style="float:right"><a class="nav_links" href="admin">Pannel Admin</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <h1>Chercheurs</h1>
+        <h4><a id="ajoutter_nouveau" href="/newchercheur">Ajouter Chercheur</a></h4>
+        <div>
+          <table>
+            <tr>
+              <td>Nom</td>
+              <td>Email</td>
+            </tr>
+
+            {% for c in mes_chercheurs %}
+              <tr>
+                  <td>
+                        <a href="updatechercheur/{{c.id}}"><i style="color: #0000cc;" class="fas fa-edit"></i></a>&nbsp;
+                        <a href="destroychercheur/{{c.id}}"><i style="color: #cc0000;" class="fas fa-trash-alt"></i></a>
+                        &nbsp;&nbsp;{{c.nom}}
+                  </td>
+                <td>{{c.email}}</td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+
+
+
+    </div>
+</body>
+</html>
